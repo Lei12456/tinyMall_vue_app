@@ -4,25 +4,25 @@ import {Toast} from 'vant'
 
 // 全局配置
 //axios.defaults.baseURL = 'http://39.96.21.48:5588';
-axios.defaults.baseURL = "http://localhost:884";
+axios.defaults.baseURL = "http://localhost:8084";
 
 // 响应拦截器
-axios.interceptors.response.use(function (response) {
-  // 将后台的参数结果设置到response
-  let {data} = response;
-  response.data = data.data;
-  response.status = data.status;
-  response.statusText = data.message;
-  // 统一异常处理
-  if(data.status !== 200){
-    Toast(data.message);
-    return Promise.reject(data.message);
-  }
-  return response;
-}, function (error) {
-  Toast("网络异常")
-  return Promise.reject(error);
-});
+// axios.interceptors.response.use(function (response) {
+//   // 将后台的参数结果设置到response
+//   let {data} = response;
+//   response.data = data.data;
+//   response.status = data.status;
+//   response.statusText = data.message;
+//   // 统一异常处理
+//   if(data.status !== 200){
+//     Toast(data.message);
+//     return Promise.reject(data.message);
+//   }
+//   return response;
+// }, function (error) {
+//   Toast("网络异常")
+//   return Promise.reject(error);
+// });
 
 /**
   get方式请求

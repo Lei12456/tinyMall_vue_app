@@ -25,21 +25,21 @@ const routes = [
     name: 'manager',
     component: Manager,
     // 路由独享守卫
-    beforeEnter: (to, from, next) => {
-      let token = localStorage.getItem('token');
-      if(token){
-        // 调用查询info的方法
-        store.dispatch('user/info',token)
-        .then(()=>{
-          // 当获取万用户信息之后才允许跳转
-          next();
-        })
-      } else {
-        // 如果token不存在，跳转到登录页面
-        Toast("token失效")
-        next({path:'/login'})
-      }
-    },
+    // beforeEnter: (to, from, next) => {
+    //   let token = localStorage.getItem('token');
+    //   if(token){
+    //     // 调用查询info的方法
+    //     store.dispatch('user/info',token)
+    //     .then(()=>{
+    //       // 当获取万用户信息之后才允许跳转
+    //       next();
+    //     })
+    //   } else {
+    //     // 如果token不存在，跳转到登录页面
+    //     Toast("token失效")
+    //     next({path:'/login'})
+    //   }
+    // },
     children:[{
       path: 'home',
       component: Home,

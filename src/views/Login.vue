@@ -2,9 +2,9 @@
   <div class="login">
     <!-- 头部 -->
     <div class="header">
-      <div class="logo">jz</div>
+      <div class="logo">YL</div>
       <div class="title">
-        家政服务平台-顾客端
+        网上购物就选微商城
       </div>
     </div>
 
@@ -66,9 +66,13 @@ export default {
     // 登录
     loginHandler(){
       this.login(this.form)
-      .then(()=>{
-        //跳转到首页
-        this.$router.push({path:'/manager/home'})
+      .then((res)=>{
+        if(res.data.code == 200){
+          //跳转到首页
+          this.$router.push({path:'/manager/home'})
+        }else {
+           Toast("网络异常")
+        }
       })
     }
   }
@@ -79,7 +83,6 @@ export default {
   height: 140px;
   padding: 50px;
   color: #ffffff;
-  background-color: pink;
   text-align: center
 }
 .header .logo {
